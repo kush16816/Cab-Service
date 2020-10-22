@@ -24,4 +24,11 @@ public class GenerateInvoice {
 		return totalFare;
 	}
 	
+	public static EnhancedInvoice getEnhacedInvoice(List<RideDetails> rideList) {
+		EnhancedInvoice enhancedInvoice = new EnhancedInvoice();
+		enhancedInvoice.setTotalFare(aggregateTotalFare(rideList));
+		enhancedInvoice.setNoOfRides(rideList.size());
+		enhancedInvoice.setAverageFare(enhancedInvoice.getTotalFare()/enhancedInvoice.getNoOfRides());
+		return enhancedInvoice;
+	}
 }
